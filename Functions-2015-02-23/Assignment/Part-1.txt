@@ -1,0 +1,89 @@
+/***************************************************************
+Problem: Assignment Functions Part-1
+Description: “I answered all the following questions. 
+I attached a screenshot of the result for problem 2, 3, 4, 5, and 6.“
+Name: Hiroki Hori
+ID: 1496802
+Date: 02/28/2015
+Status: complete
+****************************************************************/
+
+1 Examine the following function header, then write an example call to the function.
+
+                            void showValue(int quantity)
+
+Return type of this function is void type.
+It takes one parameter which is int type.
+Its name is showValue.
+
+An example call of this function would be like this:
+
+showValue(3);
+
+2 The following statement calls a function named half. The half function returns a
+value that is half that of the argument. Write the function.
+
+                            result = half(number);
+
+float half(float number)
+{
+    return number / 2.0;
+}
+
+3 A program contains the following function.
+
+                            int cube(int num)
+                            {
+                                return num * num * num;
+                            }
+
+Write a statement that passes the value 4 to this function and assigns its return value
+to the variable result.
+
+int result = cube(4);
+
+
+4 Write a function named timesTen that accepts an argument. When the function is
+called, it should display the product of its argument multiplied times 10.
+
+void timesTen(int number)
+{
+    cout << number * 10 << endl;
+}
+
+5 A program contains the following function.
+
+                            void display(int arg1, double arg2, char arg3)
+                            {
+                                cout << "Here are the values: "
+                                << arg1 << " " << arg2 << " "
+                                << arg3 << endl;
+                            }
+
+Write a statement that calls the procedure and passes the following variables to it:
+
+                            int age;
+                            double income;
+                            char initial;
+
+display(age, income, initial);
+
+6 Write a function named getNumber that uses a reference parameter variable to accept
+an integer argument. The function should prompt the user to enter a number in the
+range of 1 through 100. The input should be validated and stored in the parameter
+variable.
+
+void getNumber(int& number)
+{
+    string transfer;
+    int inputValue;
+    cout << "Enter a number from 1 to 100: ";
+    getline(cin, transfer);
+    stringstream(transfer) >> inputValue;
+
+    if (inputValue >= 1 && inputValue <= 100) {
+        number = inputValue;
+    } else {
+        cout << "The input number is not in the range of 1 through 100." << endl;
+    }
+}
