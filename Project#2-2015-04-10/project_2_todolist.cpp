@@ -11,6 +11,7 @@ const string INPUT_FILE_NAME = " Please input the file name: ";
 const string ERROR_OPENING_FILE = "Error opening file...";
 const string NO_ITEM = "There's no items in the list!";
 
+// Remove the top item from the todolist.
 void RemoveTopItem(vector<string> &todolist) {
     vector<string> dummy = {};
     int size = todolist.size();
@@ -31,6 +32,7 @@ void RemoveTopItem(vector<string> &todolist) {
     todolist = newVec;
 }
 
+// Add todo element to the todolist.
 void AddToList(vector<string> &todolist) {
     string transfer;
     cout << " Please add an item on the To Do list\n"
@@ -39,6 +41,7 @@ void AddToList(vector<string> &todolist) {
     todolist.push_back(transfer);
 }
 
+// Show the next item on the todolist.
 void ShowNextItem(vector<string> &todolist) {
     if (!todolist.empty()) {
         cout << " The next item on the To Do list is\n"
@@ -49,6 +52,7 @@ void ShowNextItem(vector<string> &todolist) {
     }
 }
 
+// List all the items on todolist.
 void ListAllItems(vector<string> &todolist) {
     cout << " All items in the list is\n"
          << RIGHT_ARROW
@@ -58,6 +62,7 @@ void ListAllItems(vector<string> &todolist) {
     }
 }
 
+// Do one todo and remove it from the todolist.
 void DoThis(vector<string> &todolist) {
     if (!todolist.empty()) {
         cout << " OK, time to do this list item:"
@@ -71,6 +76,7 @@ void DoThis(vector<string> &todolist) {
     }
 }
 
+// Save the current todolist to the file.
 void Save(vector<string> &todolist) {
     string transfer;
     cout << " We will save all the items into the file.\n"
@@ -88,6 +94,7 @@ void Save(vector<string> &todolist) {
     }
 }
 
+// Load the todolist from the file.
 void Load(vector<string> &todolist) {
     string transfer;
     cout << " We will load items from file and populates the todo list\n"
@@ -108,6 +115,7 @@ void Load(vector<string> &todolist) {
     }
 }
 
+// Show the good bye prompt.
 void AllDone(vector<string> &todolist) {
     cout << " Goodbye for now." << endl;
 }
