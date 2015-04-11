@@ -53,8 +53,6 @@ void writeToFile(string outPutString) {
 // Print the result in the specific format.
 void printAndWriteFormattedLine(string operation, double result) {
     int roundedResult = result;
-
-    // Console output
     stringstream ss1, ss2, hectSS, octSS, binSS;
 
     // Save operation string + decimal result as one string for later setw and left manipulation.
