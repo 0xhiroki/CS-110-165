@@ -22,6 +22,7 @@ const string PROMPT_FIRST = "Please input Operation: ";
 const string PROMPT_LAST = "Good Bye!";
 const int WIDTH30 = 30;
 const int WIDTH15 = 15;
+const int BASE = 10;
 const int THREE_DECIMAL_POINTS = 3;
 vector<char> FIRST_EVALUATION_OPERATORS = {'/', '*', '^'};
 
@@ -33,7 +34,7 @@ int decimalToBinary(int decimal) {
     while (decimal > 0) {
         total += (decimal%2) * base;
         decimal /= 2;
-        base *= 10;
+        base *= BASE;
     }
     return total;
 }
@@ -189,18 +190,20 @@ double calculateFromString(string s) {
 
 double calculateInsideParenthesisAndRest(string s) {
     // Calculate inside the parenthesis first if any.
+    // Multiple inner parentheses are hendled as well.
+    // ex.) (3*(2+1)) or (3 * (2 * (2+1)))
     while (isQueryIncluded(s, "(")) {
         int startIndex = 0;
         int endIndex = 0;
-        bool startDone = false;
         bool endDone = false;
 
         for (int i=0; i<s.length(); i++) {
-            if (s.at(i) == '(' && !startDone) {
+            if (s.at(i) == '(') {
+                // startIndex should be whatever it finds last.
                 startIndex = i;
-                startDone = true;
             }
             if (s.at(i) == ')' && !endDone) {
+                // endIndex should be the first one it finds.
                 endIndex = i;
                 endDone = true;
             }
