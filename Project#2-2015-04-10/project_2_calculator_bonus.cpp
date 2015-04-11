@@ -1,3 +1,13 @@
+/***************************************************************
+Problem: Project#2 calculator bonus
+Description: This program calculates mathematical operations the user inputs.
+It handles multiple operations like "5+40/3" in addition to basic operations.
+Name: Hiroki Hori
+ID: 1496802
+Date: 04/10/2015
+Status: complete
+****************************************************************/
+
 #include <iostream>
 #include <string>
 #include <sstream>

@@ -1,3 +1,14 @@
+/***************************************************************
+Problem: Project#2 todolist
+Description: This program lets users make simple todolist with which they
+can add element, show next item, list all items, do item, save to file,
+and load from file.
+Name: Hiroki Hori
+ID: 1496802
+Date: 04/10/2015
+Status: complete
+****************************************************************/
+
 #include <iostream>
 #include <string>
 #include <sstream>
