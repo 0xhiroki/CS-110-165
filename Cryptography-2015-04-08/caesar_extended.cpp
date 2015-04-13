@@ -4,6 +4,11 @@
     3. Ask the user to input the desired key and operation. (1. encrypt, 2. decrypt)
     4. Encrypt: Use file “message.txt” to read messages to be encrypted, output encrypted lines to screen & file “encrypted.txt”
     5. Decrypt: read from file “encrypted.txt” and output to screen and file “decrypted.txt”
+
+    Team CodeMonkey:
+    Hiroki Hori 1496802
+    Adilet Pazylkarim 1484916
+    Dias Iskrayev 1484663
 */
 
 #include <iostream>
@@ -22,10 +27,9 @@ string encrypt(string s, int shift) {
             s.at(i) = '0' + (s.at(i) - '0' + shift) % ALL_NUMBERS;
         } else if (isupper(s.at(i))) {
             s.at(i) = 'A' + (s.at(i) - 'A' + shift) % ALL_ALPHABETS;
-        } else {
-            if (s.at(i) != ' ') {
-                s.at(i) = 'a' + (s.at(i) - 'a' + shift) % ALL_ALPHABETS;
-            }
+        } else if (s.at(i) != ' ') {
+            // Ignore spaces.
+            s.at(i) = 'a' + (s.at(i) - 'a' + shift) % ALL_ALPHABETS;
         }
     }
     return s;
@@ -39,11 +43,10 @@ string decrypt(string s, int shift) {
         } else if (isupper(s.at(i))) {
             int k = (s.at(i) - 'A' - shift) > 0 ? (s.at(i) - 'A' - shift) % ALL_ALPHABETS : (ALL_ALPHABETS + (s.at(i) - 'A' - shift)) % ALL_ALPHABETS;
             s.at(i) = 'A' + k;
-        } else {
-            if (s.at(i) != ' ') {
-                int k = (s.at(i) - 'a' - shift) > 0 ? (s.at(i) - 'a' - shift) % ALL_ALPHABETS : (ALL_ALPHABETS + (s.at(i) - 'a' - shift)) % ALL_ALPHABETS;
-                s.at(i) = 'a' + k;
-            }
+        } else if (s.at(i) != ' ') {
+            // Ignore spaces.
+            int k = (s.at(i) - 'a' - shift) > 0 ? (s.at(i) - 'a' - shift) % ALL_ALPHABETS : (ALL_ALPHABETS + (s.at(i) - 'a' - shift)) % ALL_ALPHABETS;
+            s.at(i) = 'a' + k;
         }
     }
     return s;
