@@ -27,3 +27,5 @@
 *.out
 *.app
 
+# DS STORE
+.DS_Store
