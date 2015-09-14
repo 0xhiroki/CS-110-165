@@ -1,7 +1,6 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
-#include <ratio>
 #include <ctime>
 #include <sstream>
 #include <string>
