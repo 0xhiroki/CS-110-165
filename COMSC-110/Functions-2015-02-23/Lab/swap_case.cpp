@@ -26,6 +26,6 @@ int main() {
     string transfer;
     cout << "Enter string: ";
     getline(cin, transfer);
-    cout << swapCase(transfer) << endl;
+    cout << "The new string is: " << swapCase(transfer) << endl;
     return 0;
 }

@@ -1,11 +1,11 @@
 /***************************************************************
-Problem: Project#2 todolist
+Problem: ToDo list
 Description: This program lets users make simple todolist with which they
 can add element, show next item, list all items, do item, save to file,
 and load from file.
 Name: Hiroki Hori
 ID: 1496802
-Date: 04/10/2015
+Date: 10/12/2015
 Status: complete
 ****************************************************************/
 
@@ -24,23 +24,7 @@ const string NO_ITEM = "There's no items in the list!";
 
 // Remove the top item from the todolist.
 void RemoveTopItem(vector<string> &todolist) {
-    vector<string> dummy = {};
-    int size = todolist.size();
-    for (int i=0; i<size; i++) {
-        dummy.push_back(todolist.back());
-        todolist.pop_back();
-    }
-
-    dummy.pop_back();
-
-    vector<string> newVec = {};
-    size = dummy.size();
-    for (int i=0; i<size; i++) {
-        newVec.push_back(dummy.back());
-        dummy.pop_back();
-    }
-
-    todolist = newVec;
+    todolist.erase(todolist.begin());
 }
 
 // Add todo element to the todolist.
@@ -49,11 +33,15 @@ void AddToList(vector<string> &todolist) {
     cout << " Please add an item on the To Do list\n"
          << RIGHT_ARROW;
     getline(cin, transfer);
-    todolist.push_back(transfer);
+    if (!transfer.empty()) {
+        todolist.push_back(transfer);
+    } else {
+        cout << "Item cannot be empty..." << endl;
+    }
 }
 
 // Show the next item on the todolist.
-void ShowNextItem(vector<string> &todolist) {
+void ShowNextItem(const vector<string> &todolist) {
     if (!todolist.empty()) {
         cout << " The next item on the To Do list is\n"
              << RIGHT_ARROW
@@ -64,7 +52,7 @@ void ShowNextItem(vector<string> &todolist) {
 }
 
 // List all the items on todolist.
-void ListAllItems(vector<string> &todolist) {
+void ListAllItems(const vector<string> &todolist) {
     cout << " All items in the list is\n"
          << RIGHT_ARROW
          << endl;
@@ -88,7 +76,7 @@ void DoThis(vector<string> &todolist) {
 }
 
 // Save the current todolist to the file.
-void Save(vector<string> &todolist) {
+void Save(const vector<string> &todolist) {
     string transfer;
     cout << " We will save all the items into the file.\n"
          << INPUT_FILE_NAME;
@@ -127,7 +115,7 @@ void Load(vector<string> &todolist) {
 }
 
 // Show the good bye prompt.
-void AllDone(vector<string> &todolist) {
+void AllDone(const vector<string> &todolist) {
     cout << " Goodbye for now." << endl;
 }
 
